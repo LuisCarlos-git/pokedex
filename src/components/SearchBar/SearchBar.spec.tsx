@@ -17,7 +17,7 @@ describe('<SearchBar />', () => {
     const { container } = renderWithTheme(<SearchBar />);
 
     expect(container.firstChild).toHaveStyle({
-      'box-shadow': '0px 1px 3px 1px #191920'
+      'box-shadow': '0px 2px 4px -2px #272730'
     });
   });
 
@@ -25,7 +25,7 @@ describe('<SearchBar />', () => {
     const { container } = renderWithTheme(<SearchBar error={true} />);
 
     expect(container.firstChild).toHaveStyle({
-      'box-shadow': '0px 1px 3px 1px #cf3434'
+      'box-shadow': '0px 2px 4px -2px #cf3434'
     });
   });
 
