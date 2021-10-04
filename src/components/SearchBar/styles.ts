@@ -10,7 +10,7 @@ type ButtonSearchProps = {
 
 const wrapperModifiers = {
   error: (theme: DefaultTheme) => css`
-    box-shadow: 0px 1px 3px 1px ${theme.colors['error-color']};
+    box-shadow: 0px 2px 4px -2px ${theme.colors['error-color']};
   `
 };
 
@@ -23,11 +23,11 @@ const buttonModifiers = {
 export const Wrapper = styled.div<StyledFormProps>`
   ${({ theme, error }) => css`
     border-radius: ${theme.border.radius};
-    background: ${theme.colors['primary-color']};
+    background: ${theme.colors['secondary-color']};
     ${theme.utils.py(theme.spacings[8])};
     ${theme.utils.px(theme.spacings[16])};
     ${theme.utils.center()};
-    box-shadow: 0px 1px 3px 1px ${theme.colors['primary-color']};
+    box-shadow: 0px 2px 4px -2px ${theme.colors['secondary-color']};
     transition: all 0.2s ease-in-out;
 
     ${error && wrapperModifiers.error(theme)}
