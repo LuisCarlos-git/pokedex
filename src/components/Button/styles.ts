@@ -9,5 +9,7 @@ export const Button = styled.button`
     border: 2px solid #fff;
     color: ${theme.colors['font-color']};
     cursor: pointer;
+    border-radius: ${theme.border.radius};
+    font-weight: 900;
   `}
 `;

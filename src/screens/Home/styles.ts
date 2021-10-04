@@ -43,3 +43,9 @@ export const CardsWrapper = styled(motion.section)`
     }
   `}
 `;
+
+export const ButtonWrapper = styled(motion.div)`
+  width: 100%;
+  max-width: 50rem;
+  margin: 6rem 0 0;
+`;

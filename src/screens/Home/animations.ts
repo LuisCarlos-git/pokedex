@@ -31,3 +31,19 @@ export const searchbarVariants: Variants = {
     }
   }
 };
+
+export const buttonVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.7
+  },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      delay: 1
+    }
+  }
+};
