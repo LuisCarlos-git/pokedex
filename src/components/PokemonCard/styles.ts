@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
 
-    background: ${theme.colors['primary-color']};
+    background: ${theme.colors['secondary-color']};
   `}
 `;
 export const PokeImage = styled.img`
