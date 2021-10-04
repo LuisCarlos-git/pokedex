@@ -2,7 +2,7 @@ const convertToRem = (value: number) => `${value / 10}rem`;
 
 export default {
   colors: {
-    'primary-color': '#191920',
+    'primary-color': '#323240',
     'secondary-color': '#272730',
     'fav-color': '#fbc202',
     'subtext-color': '#a1a1a1',
