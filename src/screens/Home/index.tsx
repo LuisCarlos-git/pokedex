@@ -2,11 +2,12 @@ import PokemonCard from 'components/PokemonCard';
 import SearchBar from 'components/SearchBar';
 import { cardVariants, searchbarVariants } from './animations';
 
-import image from 'assets/image.png';
-
 import * as Styled from './styles';
+import usePokemon from 'context/hooks/usePokemon';
+import { AnimatePresence } from 'framer-motion';
 
 const Home = () => {
+  const { pokemons } = usePokemon();
   return (
     <Styled.Wrapper>
       <Styled.SearchBarWrapper
@@ -16,21 +17,25 @@ const Home = () => {
       >
         <SearchBar />
       </Styled.SearchBarWrapper>
-      <Styled.CardsWrapper
-        variants={cardVariants}
-        animate="show"
-        initial="hidden"
-      >
-        {Array.from(Array(8).keys()).map(item => (
-          <PokemonCard
+      <AnimatePresence>
+        {!!pokemons.length && (
+          <Styled.CardsWrapper
             variants={cardVariants}
-            key={item}
-            name="bulbasaur"
-            type="grass"
-            pokeimage={image}
-          />
-        ))}
-      </Styled.CardsWrapper>
+            animate="show"
+            initial="hidden"
+          >
+            {pokemons.map(item => (
+              <PokemonCard
+                variants={cardVariants}
+                key={item.id}
+                name={item.name}
+                type={item.type}
+                pokeimage={item.image}
+              />
+            ))}
+          </Styled.CardsWrapper>
+        )}
+      </AnimatePresence>
     </Styled.Wrapper>
   );
 };

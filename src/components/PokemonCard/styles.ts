@@ -5,7 +5,7 @@ import { css } from 'styled-components';
 export const Wrapper = styled(motion.div)`
   ${({ theme }) => css`
     width: 100%;
-    max-width: 20rem;
+    max-width: 15rem;
     padding: 1.5rem;
     border-radius: ${theme.border.radius};
     display: flex;
@@ -13,12 +13,22 @@ export const Wrapper = styled(motion.div)`
     align-items: center;
 
     background: ${theme.colors['secondary-color']};
+
+    ${theme.media.query(350)} {
+      width: 100%;
+      max-width: 20rem;
+    }
   `}
 `;
 export const PokeImage = styled.img`
   ${({ theme }) => css`
-    width: 15rem;
+    width: 10rem;
     margin-bottom: ${theme.spacings[8]};
+
+    ${theme.media.query(350)} {
+      width: 100%;
+      max-width: 15rem;
+    }
   `}
 `;
 export const PokeInfos = styled.div`

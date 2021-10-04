@@ -1,3 +1,4 @@
+import PokemonPorvider from 'context/providers/PokemonProvider';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from 'routes';
 import { ThemeProvider } from 'styled-components';
@@ -9,7 +10,9 @@ export default function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <Routes />
+        <PokemonPorvider>
+          <Routes />
+        </PokemonPorvider>
         <GlobalStyles />
       </ThemeProvider>
     </BrowserRouter>

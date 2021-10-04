@@ -1,7 +1,7 @@
 import api from './baseApiConfig';
 
 const RESOURCE = '/pokemon';
-const LIMIT_POKEMONS = 10;
+const LIMIT_POKEMONS = 8;
 
 async function getAllPokemons<Response>(): Promise<Response> {
   const response = await api.get<Response>(RESOURCE, {
@@ -11,10 +11,8 @@ async function getAllPokemons<Response>(): Promise<Response> {
   return response.data;
 }
 
-async function getDetailsPokemons<Response>(
-  detailsUrl: string
-): Promise<Response> {
-  const response = await api.get<Response>(detailsUrl);
+async function getDetailsPokemons<Response>(name: string): Promise<Response> {
+  const response = await api.get<Response>(`${RESOURCE}/${name}`);
 
   return response.data;
 }
