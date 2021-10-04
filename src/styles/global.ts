@@ -23,6 +23,7 @@ export default createGlobalStyle`
     #root,
     body {
       height: 100vh;
+      background: ${theme.colors['primary-color']};
     }
   `}
 `;

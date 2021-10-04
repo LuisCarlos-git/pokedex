@@ -1,7 +1,8 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { css } from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(motion.div)`
   ${({ theme }) => css`
     width: 100%;
     max-width: 20rem;

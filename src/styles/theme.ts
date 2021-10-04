@@ -36,7 +36,8 @@ export default {
     16: convertToRem(16),
     24: convertToRem(24),
     32: convertToRem(32),
-    40: convertToRem(40)
+    40: convertToRem(40),
+    48: convertToRem(48)
   },
 
   utils: {
@@ -64,9 +65,6 @@ export default {
   },
 
   media: {
-    320: '@media only screen and (min-width: 320px)',
-    375: '@media only screen and (min-width: 375px)',
-    425: '@media only screen and (min-width: 425px)',
-    768: '@media only screen and (min-width: 768px)'
+    query: (value: number) => `@media only screen and (min-width: ${value}px)`
   }
 } as const;
