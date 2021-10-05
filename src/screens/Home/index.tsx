@@ -1,16 +1,16 @@
-import PokemonCard from 'components/PokemonCard';
+import usePokemon from 'context/hooks/usePokemon';
+
+import Button from 'components/Button';
 import SearchBar from 'components/SearchBar';
+import PokemonCard from 'components/PokemonCard';
+
 import { buttonVariants, cardVariants, searchbarVariants } from './animations';
 
 import * as Styled from './styles';
-import usePokemon from 'context/hooks/usePokemon';
 import { AnimatePresence } from 'framer-motion';
-import Button from 'components/Button';
 
 const Home = () => {
-  const { pokemons } = usePokemon();
-
-  if (!pokemons.length) return null;
+  const { pokemons, getMorePokemons, loading } = usePokemon();
 
   return (
     <Styled.Wrapper>
@@ -21,31 +21,37 @@ const Home = () => {
       >
         <SearchBar />
       </Styled.SearchBarWrapper>
-      <AnimatePresence>
-        {!!pokemons.length && (
-          <Styled.CardsWrapper
-            variants={cardVariants}
-            animate="show"
-            initial="hidden"
-          >
-            {pokemons.map(item => (
-              <PokemonCard
-                variants={cardVariants}
-                key={item.id}
-                name={item.name}
-                type={item.type}
-                pokeimage={item.image}
-              />
-            ))}
-          </Styled.CardsWrapper>
-        )}
-      </AnimatePresence>
+
+      {loading ? (
+        <Styled.InvisbleDiv />
+      ) : (
+        <AnimatePresence>
+          {pokemons.length && (
+            <Styled.CardsWrapper
+              variants={cardVariants}
+              animate="show"
+              initial="hidden"
+            >
+              {pokemons.map(item => (
+                <PokemonCard
+                  variants={cardVariants}
+                  key={item.id}
+                  name={item.name}
+                  type={item.type}
+                  pokeimage={item.image}
+                />
+              ))}
+            </Styled.CardsWrapper>
+          )}
+        </AnimatePresence>
+      )}
+
       <Styled.ButtonWrapper
         variants={buttonVariants}
         initial="hidden"
         animate="show"
       >
-        <Button>More pokemons...</Button>
+        <Button onClick={() => getMorePokemons()}>More pokemons...</Button>
       </Styled.ButtonWrapper>
     </Styled.Wrapper>
   );

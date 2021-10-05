@@ -17,9 +17,21 @@ async function getDetailsPokemons<Response>(name: string): Promise<Response> {
   return response.data;
 }
 
+async function getMorePokemons<Response>(offset: number): Promise<Response> {
+  const response = await api.get<Response>(`${RESOURCE}`, {
+    params: {
+      offset,
+      limit: LIMIT_POKEMONS
+    }
+  });
+
+  return response.data;
+}
+
 const services = {
   getAllPokemons,
-  getDetailsPokemons
+  getDetailsPokemons,
+  getMorePokemons
 };
 
 export default services;

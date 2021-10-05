@@ -4,6 +4,8 @@ export type ProviderTypes = {
 
 export type ContextPokemonsType = {
   pokemons: PokemonsState[];
+  loading: boolean;
+  getMorePokemons: () => void;
 };
 
 export type GetAllPokemons = {

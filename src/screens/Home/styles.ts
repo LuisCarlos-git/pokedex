@@ -40,6 +40,7 @@ export const CardsWrapper = styled(motion.section)`
     }
     ${theme.media.query(768)} {
       grid-template-columns: repeat(4, 1fr);
+      min-height: 464px;
     }
   `}
 `;
@@ -48,4 +49,10 @@ export const ButtonWrapper = styled(motion.div)`
   width: 100%;
   max-width: 50rem;
   margin: 6rem 0 0;
+`;
+
+export const InvisbleDiv = styled.div`
+  display: block;
+  height: 464px;
+  width: 768px;
 `;

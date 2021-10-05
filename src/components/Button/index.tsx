@@ -5,8 +5,8 @@ export type ButtonProps = {
   children: React.ReactNode | React.ReactNodeArray;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button = ({ children }: ButtonProps) => (
-  <Styled.Button>{children}</Styled.Button>
+const Button = ({ children, ...rest }: ButtonProps) => (
+  <Styled.Button {...rest}>{children}</Styled.Button>
 );
 
 export default Button;

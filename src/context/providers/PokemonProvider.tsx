@@ -16,9 +16,13 @@ export const PokemonContext = createContext<ContextPokemonsType>(
 
 const PokemonPorvider = ({ children }: ProviderTypes) => {
   const [pokemons, setPokemons] = useState<PokemonsState[]>([]);
+  const [offset, setOffset] = useState(8);
+  const [loading, setLoading] = useState(true);
 
   const getPokemons = async () => {
     const response = await services.getAllPokemons<GetAllPokemons>();
+    console.log(response);
+
     const pokemonPromises = response.results.map(async pokemon => {
       return await services.getDetailsPokemons<GetDetailsPokemons>(
         pokemon.name
@@ -38,6 +42,35 @@ const PokemonPorvider = ({ children }: ProviderTypes) => {
     );
 
     setPokemons(results);
+    setLoading(false);
+  };
+
+  const getMorePokemons = async () => {
+    setLoading(true);
+    setOffset(old => old + 8);
+    const response = await services.getMorePokemons<GetAllPokemons>(offset);
+
+    const pokemonPromises = response.results.map(async pokemon => {
+      return await services.getDetailsPokemons<GetDetailsPokemons>(
+        pokemon.name
+      );
+    });
+    const results: PokemonsState[] = await Promise.all(pokemonPromises).then(
+      result => {
+        return result.map(pokemon => {
+          return {
+            id: pokemon.id,
+            name: pokemon.name,
+            image: pokemon.sprites.other['official-artwork'].front_default,
+            type: pokemon.types[0].type.name
+          };
+        });
+      }
+    );
+
+    setPokemons(results);
+
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -45,7 +78,9 @@ const PokemonPorvider = ({ children }: ProviderTypes) => {
   }, []);
 
   const value: ContextPokemonsType = {
-    pokemons
+    pokemons,
+    getMorePokemons,
+    loading
   };
 
   return (

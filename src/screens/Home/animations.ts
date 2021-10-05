@@ -17,6 +17,22 @@ export const cardVariants: Variants = {
   }
 };
 
+export const wrapperVariants: Variants = {
+  hidden: {
+    opacity: 0
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      staggerChildren: 0.1,
+      delayChildren: 0.4,
+      duration: 0.4
+    }
+  }
+};
+
 export const searchbarVariants: Variants = {
   hidden: {
     opacity: 0,
