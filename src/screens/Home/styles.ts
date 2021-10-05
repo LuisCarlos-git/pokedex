@@ -51,8 +51,14 @@ export const ButtonWrapper = styled(motion.div)`
   margin: 6rem 0 0;
 `;
 
-export const InvisbleDiv = styled.div`
+export const InvisbleDiv = styled(motion.div)`
   display: block;
   height: 464px;
   width: 768px;
+  background: red;
+  color: black;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
