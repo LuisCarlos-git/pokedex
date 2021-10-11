@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.main`
@@ -18,7 +17,7 @@ export const Wrapper = styled.main`
     }
   `}
 `;
-export const SearchBarWrapper = styled(motion.section)`
+export const SearchBarWrapper = styled.section`
   ${({ theme }) => css`
     margin-bottom: ${theme.spacings[48]};
     max-width: 50rem;
@@ -28,7 +27,7 @@ export const SearchBarWrapper = styled(motion.section)`
     }
   `}
 `;
-export const CardsWrapper = styled(motion.section)`
+export const CardsWrapper = styled.section`
   ${({ theme }) => css`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -45,13 +44,13 @@ export const CardsWrapper = styled(motion.section)`
   `}
 `;
 
-export const ButtonWrapper = styled(motion.div)`
+export const ButtonWrapper = styled.div`
   width: 100%;
   max-width: 50rem;
   margin: 6rem 0 0;
 `;
 
-export const InvisbleDiv = styled(motion.div)`
+export const InvisbleDiv = styled.div`
   display: block;
   height: 464px;
   width: 768px;
