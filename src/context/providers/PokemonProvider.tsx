@@ -21,7 +21,6 @@ const PokemonPorvider = ({ children }: ProviderTypes) => {
 
   const getPokemons = async () => {
     const response = await services.getAllPokemons<GetAllPokemons>();
-    console.log(response);
 
     const pokemonPromises = response.results.map(async pokemon => {
       return await services.getDetailsPokemons<GetDetailsPokemons>(
@@ -41,7 +40,7 @@ const PokemonPorvider = ({ children }: ProviderTypes) => {
       }
     );
 
-    setPokemons(results);
+    setPokemons(oldPokemons => [...oldPokemons, ...results]);
     setLoading(false);
   };
 

@@ -54,7 +54,6 @@ export const InvisbleDiv = styled.div`
   display: block;
   height: 464px;
   width: 768px;
-  background: red;
   color: black;
   font-size: 4rem;
   display: flex;

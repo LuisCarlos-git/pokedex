@@ -5,6 +5,7 @@ import SearchBar from 'components/SearchBar';
 import PokemonCard from 'components/PokemonCard';
 
 import * as Styled from './styles';
+import Loading from 'components/Loading';
 
 const Home = () => {
   const { pokemons, getMorePokemons, loading } = usePokemon();
@@ -14,7 +15,7 @@ const Home = () => {
         <SearchBar />
       </Styled.SearchBarWrapper>
 
-      {!loading ? (
+      {!loading && pokemons.length ? (
         <Styled.CardsWrapper>
           {pokemons.map(item => (
             <PokemonCard
@@ -26,7 +27,9 @@ const Home = () => {
           ))}
         </Styled.CardsWrapper>
       ) : (
-        <Styled.InvisbleDiv />
+        <Styled.InvisbleDiv>
+          <Loading />
+        </Styled.InvisbleDiv>
       )}
 
       <Styled.ButtonWrapper>
